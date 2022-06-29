@@ -5,12 +5,16 @@ import 'package:svu_beta/Student_enroll_course.dart';
 import 'package:svu_beta/sizehelper.dart';
 
 class Student_code_course extends StatefulWidget {
+  var std_id;
+  Student_code_course(this.std_id);
   State<StatefulWidget> createState() {
-    return Student_code_coursestate();
+    return Student_code_coursestate(this.std_id);
   }
 }
 
 class Student_code_coursestate extends State<Student_code_course> {
+  var std_id;
+  Student_code_coursestate(this.std_id);
   final courseCodeController = TextEditingController();
   List courseslist = [];
   var coursecode;
@@ -132,7 +136,7 @@ class Student_code_coursestate extends State<Student_code_course> {
                 ],
               ),
               textAlign: TextAlign.center,
-              softWrap: false,
+              softWrap: true,
             ),
           ),
           Container(
@@ -182,7 +186,7 @@ class Student_code_coursestate extends State<Student_code_course> {
             alignment: Alignment(0.0, -0.573),
             child: SizedBox(
               child: Text(
-                'You can search using your Subject Code\nor your Subject Name.',
+                'You can search using your Subject Code or your Subject Name.',
                 style: TextStyle(
                   fontFamily: 'Gilroy',
                   fontSize: 14,
@@ -190,7 +194,7 @@ class Student_code_coursestate extends State<Student_code_course> {
                   fontWeight: FontWeight.w300,
                 ),
                 textAlign: TextAlign.center,
-                softWrap: false,
+                softWrap: true,
               ),
             ),
           ),
@@ -229,7 +233,7 @@ class Student_code_coursestate extends State<Student_code_course> {
                                       MaterialPageRoute(
                                           builder: (context) =>
                                               Student_enroll_course(
-                                                  coursecode)));
+                                                  coursecode, std_id)));
                                 },
                                 style: ButtonStyle(
                                   fixedSize: MaterialStateProperty.all(
@@ -246,7 +250,6 @@ class Student_code_coursestate extends State<Student_code_course> {
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 16,
-                                          //fontWeight: FontWeight.w600,
                                           height: 1.6),
                                     ))));
                       }),

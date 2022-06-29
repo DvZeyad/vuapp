@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 import 'package:svu_beta/upd_student_menu.dart';
+import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
 
 class chatApp extends StatelessWidget {
   chatApp(
@@ -16,10 +17,12 @@ class chatApp extends StatelessWidget {
   final Channel channel;
   final apiKey = "4hw3tn7rpac3";
   final userToken =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiTWFoeXRhYiJ9.tyujpcV9v9FjLpaPd-Ajs32IUaM2JWpHgPNoUvgbcE0";
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiWmV5YWQifQ.mRItlAplNexwH--8JQ5Z2R6TDVDjdlQOMI7s_uydVPM";
   var currentUser;
   var year;
   var std_id;
+
+  //final jwt = JWT({"user_id": "Mahytab", "alg": "HS256"});
 
   /// To initialize this example, an instance of [client] and [channel] is required.
 
@@ -31,11 +34,11 @@ class chatApp extends StatelessWidget {
 
     await client.connectUser(
       User(
-          id: 'Mahytab',
+          id: 'Zeyad',
           extraData: {
             'image': 'https://robertbrunhage.com/logo.png',
           },
-          name: 'Mahytab'),
+          name: 'Zeyad'),
       userToken,
     );
 
@@ -64,6 +67,7 @@ class chatApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     chat_main();
+
     final theme = ThemeData.dark().copyWith(
         primaryColor: Color(0xffc34c4c), scaffoldBackgroundColor: Colors.green);
     return MaterialApp(
@@ -141,6 +145,7 @@ class _ChannelListPageState extends State<ChannelListPage> {
 
   @override
   Widget build(BuildContext context) {
+    print(currentUser);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -150,11 +155,12 @@ class _ChannelListPageState extends State<ChannelListPage> {
             color: Colors.black,
           ),
           onPressed: () {
-            Navigator.push(
+            Navigator.pushAndRemoveUntil(
                 context,
                 MaterialPageRoute(
                     builder: (context) =>
-                        Updstudent_menu(currentUser, year, std_id)));
+                        Updstudent_menu(currentUser, year, std_id)),
+                ((route) => false));
           },
         ),
         backgroundColor: Colors.white70,

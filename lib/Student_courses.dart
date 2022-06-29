@@ -133,7 +133,7 @@ class Student_coursesstate extends State<Student_courses> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Student_code_course(),
+                        builder: (context) => Student_code_course(std_id),
                       ),
                     );
                   },
@@ -183,11 +183,11 @@ class Student_coursesstate extends State<Student_courses> {
                                           MaterialPageRoute(
                                               builder: (context) =>
                                                   student_course_name(
-                                                    cname: cname,
-                                                    ccode: ccode,
-                                                    student_id: std_id,
-                                                    instructor_id:instructor_id
-                                                  )));
+                                                      cname: cname,
+                                                      ccode: ccode,
+                                                      student_id: std_id,
+                                                      instructor_id:
+                                                          instructor_id)));
                                     },
                                     style: ButtonStyle(
                                       fixedSize: MaterialStateProperty.all(

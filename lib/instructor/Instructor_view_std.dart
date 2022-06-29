@@ -90,7 +90,7 @@ class Instructor_view_stdstate extends State<Instructor_view_std> {
         animType: AnimType.RIGHSLIDE,
         headerAnimationLoop: true,
         title: 'Success',
-        desc: 'Course Removed Successfully',
+        desc: 'Student Removed Successfully',
         btnOkOnPress: () {
           Navigator.pop(
             context,

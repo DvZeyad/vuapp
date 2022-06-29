@@ -48,7 +48,8 @@ class student_course_namestate extends State<student_course_name> {
 
     try {
       var res = await conn.execute(
-          "delete from courses_enrollments where coursecode = '$ccode' and enrolled_student = '$student_id'");
+          "delete from courses_enrollments where enrolled_coursecode = '$ccode' and enrolled_student = '$student_id'");
+
       AwesomeDialog(
         context: context,
         dialogType: DialogType.SUCCES,
@@ -77,7 +78,6 @@ class student_course_namestate extends State<student_course_name> {
         btnOkColor: Colors.red,
       ).show();
     }
-
     await conn.close();
   }
 

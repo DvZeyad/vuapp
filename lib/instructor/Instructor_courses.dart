@@ -200,9 +200,10 @@ class Instructor_coursesstate extends State<Instructor_courses> {
                                           MaterialPageRoute(
                                               builder: (context) =>
                                                   Instructor_course_options(
-                                                      cname: cname,
-                                                      ccode: ccode,
-                                                      currentUser: currentUser,)));
+                                                    cname: cname,
+                                                    ccode: ccode,
+                                                    currentUser: currentUser,
+                                                  )));
                                     },
                                     style: ButtonStyle(
                                       fixedSize: MaterialStateProperty.all(

@@ -37,6 +37,7 @@ dependencies:
   awesome_dialog: ^2.2.1
   stream_chat_flutter: ^4.2.0
   any_link_preview: ^2.0.8
+  dart_jsonwebtoken: ^2.4.1
   flutter_ion:
     
 

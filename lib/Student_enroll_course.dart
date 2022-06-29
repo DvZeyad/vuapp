@@ -1,3 +1,4 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:mysql_client/mysql_client.dart';
@@ -6,16 +7,18 @@ import './Student_courses.dart';
 
 class Student_enroll_course extends StatefulWidget {
   String coursecode;
-  Student_enroll_course(this.coursecode);
+  var std_id;
+  Student_enroll_course(this.coursecode, this.std_id);
   @override
   State<StatefulWidget> createState() {
-    return Student_enroll_coursestate(this.coursecode);
+    return Student_enroll_coursestate(this.coursecode, this.std_id);
   }
 }
 
 class Student_enroll_coursestate extends State<Student_enroll_course> {
   String coursecode;
-  Student_enroll_coursestate(this.coursecode);
+  var std_id;
+  Student_enroll_coursestate(this.coursecode, this.std_id);
   List courseDetail = [];
   final accessCodeController = TextEditingController();
   Future<List> courseDetailToEnroll() async {
@@ -42,6 +45,52 @@ class Student_enroll_coursestate extends State<Student_enroll_course> {
     await conn.close();
     print(courseDetail);
     return courseDetail;
+  }
+
+  Future enrollACourse() async {
+    final conn = await MySQLConnection.createConnection(
+        host: "192.168.1.5",
+        port: 3306,
+        userName: "root",
+        password: "zeyad123!",
+        databaseName: "svu_db",
+        secure: false // optional
+        );
+    await conn.connect();
+    print("Connected");
+
+    try {
+      var res = await conn.execute(
+          "insert into courses_enrollments(enrolled_coursecode,enrolled_student,year,course_id) values ('$coursecode',$std_id,(select year from userstest where id = $std_id),(select courseid from courses where coursecode = '$coursecode'))");
+
+      AwesomeDialog(
+        context: context,
+        dialogType: DialogType.SUCCES,
+        animType: AnimType.RIGHSLIDE,
+        headerAnimationLoop: true,
+        title: 'Success',
+        desc: "Your've been enrolled Successfuly",
+        btnOkOnPress: () {
+          Navigator.pop(
+            context,
+          );
+        },
+        btnOkIcon: Icons.cancel,
+        btnOkColor: Colors.green,
+      ).show();
+    } catch (e) {
+      AwesomeDialog(
+        context: context,
+        dialogType: DialogType.ERROR,
+        animType: AnimType.RIGHSLIDE,
+        headerAnimationLoop: true,
+        title: 'Error',
+        desc: 'An Error Occured',
+        btnOkOnPress: () {},
+        btnOkIcon: Icons.cancel,
+        btnOkColor: Colors.red,
+      ).show();
+    }
   }
 
   @override
@@ -223,7 +272,7 @@ class Student_enroll_coursestate extends State<Student_enroll_course> {
                 color: const Color(0x7affffff),
                 fontStyle: FontStyle.italic,
               ),
-              softWrap: false,
+              softWrap: true,
             ),
           ),
           Align(
@@ -233,7 +282,7 @@ class Student_enroll_coursestate extends State<Student_enroll_course> {
                 height: displayHeight(context) * 0.056,
                 child: ElevatedButton(
                   onPressed: () {
-                    //Enroll Function
+                    enrollACourse();
                   },
                   style: ButtonStyle(
                       overlayColor: MaterialStateProperty.all(Colors.red),

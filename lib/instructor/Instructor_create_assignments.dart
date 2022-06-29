@@ -56,8 +56,7 @@ class Instructor_create_assignmentsstate
         title: 'Success',
         desc: 'Assignment Has Been Created Successfuly',
         btnOkOnPress: () {
-          Navigator.pop(context
-              );
+          Navigator.pop(context);
         },
         btnOkIcon: Icons.cancel,
         btnOkColor: Colors.green,

@@ -78,8 +78,6 @@ class student_assignments_uploadstate
   }
 
   Future getDegree() async {
-    var mat_linkT = mat_link.text;
-
     print("Connecting to mysql server...");
     // create connection
     final conn = await MySQLConnection.createConnection(
@@ -91,9 +89,14 @@ class student_assignments_uploadstate
         secure: false);
     await conn.connect();
     print("Connected");
-
+    List jsondetails = [];
     var res = await conn.execute(
         "select degree from uploaded_assignments where uploaded_assignments_student='$currentUser' and theuploaded_assignment_id = '$assignment_id'");
+    for (final row in res.rows) {
+      var details = row.assoc();
+      jsondetails.add(details);
+    }
+    return jsondetails;
   }
 
   @override
@@ -244,17 +247,22 @@ class student_assignments_uploadstate
           Container(
               alignment: Alignment(0, displayWidth(context) * 0.0008),
               child: FutureBuilder(
-                  //future: dbconnectandupload(),
+                  future: getDegree(),
                   builder: (BuildContext context, AsyncSnapshot snapshot) {
-                if (snapshot.hasData) {
-                  return Text('');
-                } else {
-                  return Text(
-                    'Instructor Did not review your work yet',
-                    style: TextStyle(color: Colors.white),
-                  );
-                }
-              })),
+                    if (snapshot.hasData) {
+                      var data = snapshot.data;
+                      print(data);
+                      return Text(
+                        'Your Degree is ${data[0]['degree']}',
+                        style: TextStyle(color: Colors.white, fontSize: 17),
+                      );
+                    } else {
+                      return Text(
+                        'Instructor Did not review your work yet',
+                        style: TextStyle(color: Colors.white),
+                      );
+                    }
+                  })),
           Container(
               margin: EdgeInsets.only(
                   top: displayHeight(context) * 0.85,
