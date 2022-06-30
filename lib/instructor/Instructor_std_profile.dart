@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mysql_client/mysql_client.dart';
 import 'package:svu_beta/instructor/Inst_student_attendance.dart';
-import 'package:svu_beta/student_attendance.dart';
+import 'package:svu_beta/student/student_attendance.dart';
 import '../sizehelper.dart';
 
 class Instructor_std_profile extends StatefulWidget {

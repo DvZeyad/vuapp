@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:svu_beta/choosing_university.dart';
 import 'package:svu_beta/login_withmysql.dart';
 
 void main() {

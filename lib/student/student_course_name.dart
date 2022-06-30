@@ -2,9 +2,9 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:mysql_client/mysql_client.dart';
-import 'package:svu_beta/Student_course_materials.dart';
+import 'package:svu_beta/student/Student_course_materials.dart';
 import 'package:svu_beta/sizehelper.dart';
-import 'package:svu_beta/student_view_instructor.dart';
+import 'package:svu_beta/student/student_view_instructor.dart';
 import './std_view_students.dart';
 
 class student_course_name extends StatefulWidget {

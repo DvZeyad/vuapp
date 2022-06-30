@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 import 'package:svu_beta/instructor/UpdInstructor_menu.dart';
-import 'package:svu_beta/upd_student_menu.dart';
+import 'package:svu_beta/student/upd_student_menu.dart';
 
 class chatApp extends StatelessWidget {
   chatApp({

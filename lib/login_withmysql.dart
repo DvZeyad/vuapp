@@ -4,7 +4,7 @@ import 'package:adobe_xd/pinned.dart';
 import 'package:svu_beta/constants.dart';
 import 'package:svu_beta/instructor/Instructor_dashboard.dart';
 import 'package:svu_beta/sizehelper.dart';
-import 'package:svu_beta/student_dashboard.dart';
+import 'package:svu_beta/student/student_dashboard.dart';
 import 'package:mysql_client/mysql_client.dart';
 
 class login_screen extends StatefulWidget {

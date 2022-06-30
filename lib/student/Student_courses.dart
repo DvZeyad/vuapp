@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:mysql_client/mysql_client.dart';
-import 'package:svu_beta/Student_code_course.dart';
+import 'package:svu_beta/student/Student_code_course.dart';
 import 'package:svu_beta/sizehelper.dart';
-import 'package:svu_beta/student_course_name.dart';
+import 'package:svu_beta/student/student_course_name.dart';
 
 class Student_courses extends StatefulWidget {
   String currentUser;

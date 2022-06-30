@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:mysql_client/mysql_client.dart';
-import 'package:svu_beta/Student_Assigments.dart';
-import 'package:svu_beta/Student_Calender.dart';
-import 'package:svu_beta/Student_Examination.dart';
+import 'package:svu_beta/student/Student_Assigments.dart';
+import 'package:svu_beta/student/Student_Calender.dart';
+import 'package:svu_beta/student/Student_Examination.dart';
 import 'package:svu_beta/chat/stream_chat_student.dart';
-import 'package:svu_beta/Student_courses.dart';
+import 'package:svu_beta/student/Student_courses.dart';
 import 'package:svu_beta/sizehelper.dart';
-import 'package:svu_beta/reportcards.dart';
-import 'package:svu_beta/student_attendance.dart';
-import 'package:svu_beta/student_profile.dart';
+import 'package:svu_beta/student/reportcards.dart';
+import 'package:svu_beta/student/student_attendance.dart';
+import 'package:svu_beta/student/student_profile.dart';
 import './student_dashboard.dart';
-import './login_withmysql.dart';
+import '../login_withmysql.dart';
 import 'Student_notifications.dart';
 import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 

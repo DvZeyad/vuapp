@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:mysql_client/mysql_client.dart';
 import 'package:svu_beta/sizehelper.dart';
-import 'package:svu_beta/student_assignments_uploadN.dart';
-import 'package:svu_beta/upd_student_menu.dart';
+import 'package:svu_beta/student/student_assignments_uploadN.dart';
+import 'package:svu_beta/student/upd_student_menu.dart';
 
 class student_dashboard extends StatefulWidget {
   String currentUser;
